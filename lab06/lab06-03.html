@@ -101,9 +101,45 @@
             } else {
                 document.getElementById("errName").innerHTML = "";
             }
-            if 
+            if (emailElm.value == "") {
+                document.getElementById("errEmail").innerHTML = "กรุณากรอกอีเมล";
+                emailElm.focus();
+                return false;
+            } else {
+                document.getElementById("errEmail").innerHTML = "";
+            }
+            if (phoneElm.value == "") {
+                document.getElementById("errPhone").innerHTML = "กรุณากรอกเบอร์โทร";
+                phoneElm.focus();
+                return false;
+            } else {
+                document.getElementById("errPhone").innerHTML = "";
+            }
+            if (passwordElm.value == "") {
+                document.getElementById("errPassword").innerHTML = "กรุณากรอกรหัสผ่าน";
+                passwordElm.focus();
+                return false;
+            } else {
+                document.getElementById("errPassword").innerHTML = "";
+            }
+            if (comfirmPasswordElm.value == "") {
+                document.getElementById("errConfirmPassword").innerHTML = "กรุณากรอกยืนยันรหัสผ่าน";
+                comfirmPasswordElm.focus();
+                return false;
+            } else {
+                document.getElementById("errConfirmPassword").innerHTML = "";
+            }
+            if (passwordElm.value != comfirmPasswordElm.value) {
+                document.getElementById("errConfirmPassword").innerHTML = "กรุณากรอกรหัสผ่านให้ตรงกัน";
+                passwordElm.focus();
+                return false;
+            } else {
+                document.getElementById("errConfirmPassword").innerHTML = "";
+            }
 
-        })
+            alert("สมัครสมาชิกเรียบร้อยแล้ว");
+            return true;
+        });
     </script>
 </body>
 </html>

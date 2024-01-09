@@ -1,0 +1,40 @@
+body {
+    font-family: arial;
+    background-color: rgb(194, 218, 244);
+}
+
+h1 {
+    color:rgb(43, 60, 215);
+}
+h2 {
+    background-color: #6495ed;
+    font-family: fantasy;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  div {
+    background-color: lightblue;
+  }
+  
+  p {
+    background-color: #fff8dc;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 500px;
+    border-radius: 15px solid rgb(47, 47, 252);
+    padding: 1%;
+    margin: 0.5%;
+  }
+
+  img {
+    width: 500px;
+    border: 15px solid rgb(68, 68, 253);
+    padding: 0.5%;
+    margin-left: 0%;
+  }
+
+  p1 {
+    font-size: larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  
