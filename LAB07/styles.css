@@ -8,7 +8,7 @@ body {
     h1 {
     color: #333;
     font-size: 24px;
-    background-color: #bbffb2;
+    background-color: #b2f6ff;
     padding: 15px;
     border-radius: 5px;
     color: rgb(0, 0, 0);
@@ -25,7 +25,7 @@ body {
     padding: 15px;
     margin: 10px 0;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(87, 86, 86, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +45,7 @@ body {
     }
     button {
     padding: 12px 24px;
-    background-color: #ffaced;
+    background-color: #ecacff;
     color: white;
     border: none;
     border-radius: 8px;
@@ -53,5 +53,5 @@ body {
     transition: background-color 0.3s;
     }
     button:hover {
-    background-color: #0056b3;
+    background-color: #a400b3;
     }
