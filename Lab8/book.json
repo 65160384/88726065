@@ -1,0 +1,28 @@
+{
+    "books": [
+      {
+        "id": 1,
+        "name": "Python",
+        "price": "790",
+        "author1": "Emma",
+        "author2": "Emmy",
+        "author3": "Anna"
+      },
+      {
+        "id": 2,
+        "name": "C++",
+        "price": "899",
+        "author1": "Ant",
+        "author2": "Bee",
+        "author3": "Cat"
+      },
+      {
+        "id": 3,
+        "name": "JavaScript",
+        "price": "490",
+        "author1": "Pichai Daboon",
+        "author2": "Paranee Meesub",
+        "author3": "Hamud Salim"
+      }
+    ]
+  }
