@@ -5,25 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="sidebar">
-        <a class="active" href="index.html"><i class="fa fa-home"></i> รูปสุนัขทั้งหมด</a>
-        <a class="active" href="uploaddog.html"><i class="fa fa-upload"></i> อัพโหลดรูปสุนัข</a>
+        <a class="active" href="index.html"></i> รูปสุนัขของฉันทั้งหมด</a>
+        <a class="active" href="uploaddog.html"></i> อัพโหลดรูปสุนัข</a>
     </div>
     <div class="content">
         <center>
-            <h2>อัพโหลดรูปสุนัข</h2>
+            <h2>อัพโหลดรูปสุนัขของฉัน</h2>
         </center>
         <center>
             <div id="uploadResults"></div>
         </center>
         <form onsubmit="uploadImage(); return false;">
-            <label for="file-upload"><i class="fa fa-upload"></i> เลือกไฟล์รูปภาพสุนัข</label>
+            <label for="file-upload"></i> เลือกไฟล์รูปภาพสุนัข</label>
             <input type="file" id="file-upload" name="file-upload" accept="image/*" onchange="fileAttached()">
             <div class="filename" id="filename"></div>
             <input type="submit" value="อัพโหลด">
@@ -34,7 +32,7 @@
 <script>
     const API_URL = "https://api.thedogapi.com/v1/";
     const API_KEY =
-        "";
+        "live_najhjMTH0GlFQOqHmg3l2LbY08QV5W2oyN0dOV0VmLADHYDl7d5KQ8tLA2WrZ6iN";
 
     function uploadImage() {
         const fileInput = document.getElementById("file-upload");
@@ -56,12 +54,7 @@
             window.location.href = "index.html"
         })
         .catch((error) => {
-            Swal.fire({
-                icon: "error",
-                title: "เกิดข้อผิดพลาดบางอย่าง",
-                showConfirmButton: false,
-                timer: 1500
-            }); 
+            alert("เกิดข้อผิดพลาด " + error)
         });
     }
     function fileAttached() {
