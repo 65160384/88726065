@@ -4,44 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="lab10 image/style1.css">
-    <title>Lab10-1 : Navigation Menu</title>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <title>Lab10-2: Inline Editor</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <div id="app">
-        <!-- navigation menu จะได้รับค่าของตัวแปร "active" จาก data -->
-        <!-- หยุดการลิ้งค์ไปยังเพจอื่น โดยใช้ "prevent" modifier (ย่อมาจาก preventDefault) -->
-        <nav v-bind:class="active" v-on:click.prevent>
-            <!-- เมื่อถูกคลิก จะเรียกเมธอด makeActive -->
-            <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
-            <a href="#" class="projects" v-on:click="makeActive('projects')">Projects</a>
-            <a href="#" class="services" v-on:click="makeActive('services')">Services</a>
-            <a href="#" class="contact" v-on:click="makeActive('contact')">Contact</a>
-        </nav>
-        <!-- {{ active }} จะถูกแทนที่ค่าด้วยค่าของตัวแปร "active" โดยอัตโนมัต -->
-        <p>You choose
-            <b>{{active}}</b>
-        </p>
+    <!-- v-cloak ซ่อน any un-compiled data bindings จนกว่า Vue instance จะพร้อม -->
+    <!-- เมื่อ element ถูกคลิก ฟังก์ชั่น hideTooltp() จะถูกเรียกให้ทำงาน -->
+    <div id="app" v-cloak v-on:click="hideTooltip">
+        <!-- ส่วนนีัเป็นส่วนของ Tooltip 
+        v-on:click.stop เป็นตัวจัดการเหตุการณ์สำหรับการคลิ๊ก โดยกำหนดส่วนขยาย stop event propagation 
+    v-if เป็นการทดสอบว่าตัวแปร "showtooltip" มีค่าเป็นจริง tooltip ถึงจะถูกแสดงออกมา -->
+    <div class="tooltip" v-on:click.stop v-if="show_tooltip">
+        <!-- v-model เชื่อมเนื้อหาของ text field กับ โมเดล "text_content" 
+        เมื่อมีการเปลี่ยนแปลง text field มันจะปรับปรุงค่าที่เปลี่ยนแปลงไปยังที่ถูกเชื่อมโยงกันอัตโนมัต -->
+        <input type="text" v-model="text-content" />
+    </div>
+    <!-- เมื่อ paragraph ถูกคลิ๊กจะเรียกเมธอด "tglleTooltip" และหยุด event propagation -->
+    <!-- {{text_content}} จะถูกแทนค่าด้วยค่าของ "text_content" โดยอัตโนมัต -->
+    <p v-on:click.stop="toggleTooltip">{{text_content}}</p>
     </div>
 
     <script>
-        // สร้าง Vue instance และส่ง object ที่จะกำหนดค่าต่างๆ
         const app = Vue.createApp({
-            // สร้างตัวแปร "active" ใน data object โดยกำหนดค่าเริ่มต้นเป็น "home"
-        data() {
-            return {
-                active: 'home'
+            data() {
+                return {
+                    show_tooltip: false,
+                    text_content: 'แก้ไขข้อความ'
+                }
+            },
+            methods: {
+                hideTooltip: function () {
+                    // เมื่อ model ถูกเปลี่ยนค่า view จะถูกปรับอัตโนมัต
+                    this.show_tooltip = false;
+                },
+                toggleTooltip: function () {
+                    this.show_tooltip = !this.show_tooltip;
+                }
             }
-        },
-        method: {
-            // สร้าง method ที่จะเปลี่ยนค่าของตัวแปร "active"
-            makeActive: function (item) {
-                // เมื่อค่าของ model เปลี่ยน คำใน view ก็จะถูกเปลี่ยนอัตโนมัต
-                this.active = item;
-            }
-        }
-    }).mount('#app')
+        }).mount('#app');
     </script>
 </body>
 </html>
